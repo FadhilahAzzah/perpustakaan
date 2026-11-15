@@ -1,0 +1,141 @@
+/* ===== Perpustakaan Kampus - CSS kustom ===== */
+:root {
+    --ink: #1d3557;        /* biru punggung buku */
+    --ink-dark: #12233d;
+    --teal: #2a9d8f;
+    --amber: #e9a23b;      /* warna pita pembatas buku */
+    --rose: #d1495b;
+    --paper: #f2f5f8;
+    --text: #1e2a3a;
+}
+
+/* 1. Dasar halaman */
+body {
+    background: var(--paper);
+    color: var(--text);
+    font-family: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* 2. Judul halaman */
+.page-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 600;
+    color: var(--ink-dark);
+    letter-spacing: -0.01em;
+}
+h1.page-title { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+
+/* 3. Navbar */
+.navbar-perpus {
+    background: var(--ink);
+    border-bottom: 4px solid var(--amber);
+}
+.navbar-perpus .navbar-brand { color: #fff; font-family: 'Newsreader', Georgia, serif; font-size: 1.3rem; }
+.navbar-perpus .nav-link {
+    color: rgba(255, 255, 255, .8);
+    border-radius: .5rem;
+    padding: .45rem .9rem;
+    transition: background .2s, color .2s;
+}
+.navbar-perpus .nav-link:hover,
+.navbar-perpus .nav-link.active { background: rgba(255, 255, 255, .14); color: #fff; }
+.navbar-perpus .navbar-toggler { border-color: rgba(255, 255, 255, .5); filter: invert(1); }
+.user-chip { color: #fff; display: inline-flex; align-items: center; gap: .4rem; }
+.badge-role { background: var(--amber); color: var(--ink-dark); }
+
+/* 4. Kartu */
+.card-perpus {
+    border: 1px solid #e3e9f0;
+    border-radius: .9rem;
+    box-shadow: 0 2px 10px rgba(18, 35, 61, .05);
+}
+
+/* 5. Kartu statistik (dashboard) */
+.stat-card { transition: transform .2s, box-shadow .2s; }
+.stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(18, 35, 61, .12); }
+.stat-icon {
+    width: 42px; height: 42px; border-radius: .6rem;
+    display: grid; place-items: center; color: #fff; font-size: 1.2rem; margin-bottom: .8rem;
+}
+.bg-ink { background: var(--ink); } .bg-teal { background: var(--teal); }
+.bg-amber { background: var(--amber); } .bg-rose { background: var(--rose); }
+.stat-number { font-family: 'Newsreader', Georgia, serif; font-size: 2rem; font-weight: 600; line-height: 1; }
+.stat-label { color: #66758a; font-size: .9rem; margin-top: .3rem; }
+
+/* 6. Tabel */
+.table-perpus thead th {
+    background: #e9eef5;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: .85rem;
+    border-bottom: 2px solid #d5deea;
+    white-space: nowrap;
+}
+.table-perpus tbody tr { transition: background .15s; }
+.table-perpus tbody tr:hover { background: #fff8ec; }
+.table-perpus td { padding-top: .8rem; padding-bottom: .8rem; }
+
+/* 7. Badge kategori & stok */
+.badge-kategori { background: #dff3f0; color: #17695f; font-weight: 500; }
+.badge-stok { background: #e4ebf5; color: var(--ink); min-width: 2.4rem; }
+.badge-stok-rendah { background: #fde6e9; color: #a3263a; min-width: 2.4rem; }
+
+/* 8. Tombol dengan warna berbeda + efek hover */
+.btn-perpus-primary, .btn-perpus-warning, .btn-perpus-danger, .btn-perpus-light {
+    border: 0; font-weight: 500; border-radius: .55rem;
+    transition: transform .15s, box-shadow .15s, background .15s;
+}
+.btn-perpus-primary { background: var(--ink); color: #fff; }
+.btn-perpus-primary:hover { background: var(--ink-dark); color: #fff; transform: translateY(-2px); box-shadow: 0 6px 14px rgba(29, 53, 87, .3); }
+.btn-perpus-warning { background: var(--amber); color: #3b2a05; }
+.btn-perpus-warning:hover { background: #d48f27; color: #3b2a05; transform: translateY(-2px); }
+.btn-perpus-danger { background: var(--rose); color: #fff; }
+.btn-perpus-danger:hover { background: #b73547; color: #fff; transform: translateY(-2px); }
+.btn-perpus-light { background: #e9eef5; color: var(--ink); }
+.btn-perpus-light:hover { background: #d9e2ee; color: var(--ink-dark); }
+.btn:focus-visible, .form-control:focus-visible { outline: 3px solid rgba(233, 162, 59, .6); outline-offset: 2px; }
+
+/* 9. Form */
+.form-label { font-weight: 500; font-size: .9rem; }
+.form-control { border-radius: .55rem; border-color: #cfd8e3; padding: .6rem .8rem; }
+.form-control:focus { border-color: var(--ink); box-shadow: 0 0 0 .2rem rgba(29, 53, 87, .15); }
+.search-wrap { position: relative; max-width: 420px; }
+.search-wrap i { position: absolute; left: .9rem; top: 50%; transform: translateY(-50%); color: #7b8aa0; }
+.search-wrap .form-control { padding-left: 2.4rem; }
+
+/* 10. Modal */
+.modal-perpus { border: 0; border-radius: 1rem; }
+.modal-perpus .modal-header { border-bottom: 1px solid #e3e9f0; font-family: 'Newsreader', Georgia, serif; }
+.modal-perpus .modal-footer { border-top: 1px solid #e3e9f0; }
+.delete-icon {
+    width: 56px; height: 56px; margin-inline: auto; border-radius: 50%;
+    display: grid; place-items: center; background: #fde6e9; color: var(--rose); font-size: 1.5rem;
+}
+
+/* 11. Pesan berhasil / gagal */
+.alert-floating {
+    position: fixed; top: 1rem; right: 1rem; z-index: 2000;
+    width: min(380px, calc(100vw - 2rem));
+}
+.alert-floating .alert {
+    border: 0; border-left: 5px solid; border-radius: .6rem;
+    box-shadow: 0 8px 24px rgba(18, 35, 61, .18);
+    animation: masuk .25s ease-out;
+}
+.alert-floating .alert-success { background: #e4f6ef; border-color: var(--teal); color: #14574d; }
+.alert-floating .alert-danger { background: #fdeaed; border-color: var(--rose); color: #8f2233; }
+@keyframes masuk { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: none; } }
+
+/* 12. Paginasi */
+.pagination-perpus .page-link { color: var(--ink); border-radius: .45rem; margin: 0 2px; border-color: #d5deea; }
+.pagination-perpus .page-item.active .page-link { background: var(--ink); border-color: var(--ink); color: #fff; }
+.pagination-perpus .page-link:hover { background: #e9eef5; }
+
+/* 13. Responsif */
+@media (max-width: 576px) {
+    .table-perpus td, .table-perpus th { font-size: .85rem; padding-inline: .5rem; }
+    .stat-number { font-size: 1.6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}
